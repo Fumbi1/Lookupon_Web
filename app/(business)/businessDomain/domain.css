@@ -1,0 +1,375 @@
+.main {
+    padding-top: 8rem;
+  }
+  
+  .catalogue-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+  }
+  
+  /* .catalogue-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100dvh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }  */
+  
+  .header {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    margin-left: 7.5%;
+  }
+  
+  .titlee {
+    font-family: Outfit;
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 4rem;
+    letter-spacing: -0.0025em;
+  }
+  
+  .rating {
+    font-family: Outfit;
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 2rem;
+  }
+  
+  .varieties {
+    font-family: Outfit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.0015em;
+  }
+  
+  .time {
+    font-family: Outfit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em;
+  }
+  
+  .claim {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .buttons-wrapper {
+    margin-top: 4rem;
+    width: fit-content;
+    margin-inline: 7.5%;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .review-btn {
+    width: fit-content;
+    padding: 0.625rem 1.5rem;
+    background-color: #5f61a8;
+    font-family: Outfit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: 500ms;
+  }
+  
+  .review-btn:hover,
+  .share-btn:hover,
+  .call-btn:hover,
+  .web-btn:hover {
+    transform: scale(0.95) translateY(-1rem);
+    outline: none;
+  }
+  
+  .share-btn,
+  .call-btn,
+  .web-btn {
+    width: fit-content;
+    padding: 0.625rem 2.625rem;
+    background-color: #fff;
+    font-family: Outfit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em;
+    color: #060132;
+    border: #060132 1px solid;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 500ms;
+  }
+  
+  .line {
+    margin-block: 2rem 1rem;
+    width: 60%;
+    margin-left: 7.5%;
+    background-color: #5f61a8;
+  }
+  
+  .business-desc {
+    /* margin-left: 7.5%; */
+  }
+
+  .custom-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .desc-title {
+    font-family: Outfit;
+    margin-block: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.0015rem;
+    color: var(--Primary-text, rgba(6, 1, 50, 1));
+  }
+  
+  .desc-content {
+    font-family: Outfit;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005rem;
+    color: var(--Secondary-dark, rgba(23, 23, 26, 1));
+  }
+  
+  .side-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .left-wrapper {
+    width: 60%;
+    margin-left: 7.5%;
+  }
+  
+  .photos {
+  }
+  
+  .photos-wrap {
+    /* margin-left: 7.5%; */
+  }
+  
+  .photos-wrap > p {
+    font-family: Outfit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.0015rem;
+  }
+  
+  .business-photos {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  
+  .comments-wrap {
+    width: 100%;
+    /* margin-left: 7.5%; */
+  }
+  
+  .review {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-block: 1rem;
+  }
+  
+  .review-p {
+    margin-block: 2rem 3.25rem;
+  }
+  
+  .ratings-n-reviews {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .ratings {
+    height: fit-content;
+  }
+  
+  .overall {
+    font-family: Outfit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.0015em;
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+  }
+  
+  .review-no {
+    font-family: Outfit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em;
+    margin-top: 0.25rem;
+    color: var(--Secondary-main, rgba(114, 112, 125, 1));
+  }
+  
+  .ratings-flex {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .specific-rating-flex {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .specific-rating-flex > p {
+    font-family: Outfit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1rem;
+    letter-spacing: 0.005em;
+    color: var(--Secondary-main, rgba(114, 112, 125, 1));
+  }
+  
+  .rating-bar {
+    width: 80%;
+    height: 0.25rem;
+    border-radius: 2px;
+    background-color: var(--Secondary-light-main, rgba(222, 222, 222, 1));
+    position: relative;
+  }
+  
+  .rating-overlay {
+    position: absolute;
+    width: 70%;
+    height: 0.25rem;
+    border-radius: 2px;
+    background-color: var(--Primary-main, rgba(95, 97, 168, 1));
+    top: 0;
+    left: 0;
+  }
+  
+  .right-wrapper {
+    width: 30%;
+  }
+  
+  .locationn {
+    font-family: Outfit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1rem;
+    letter-spacing: 0.0015em;
+    margin-bottom: 1rem;
+    text-align: left;
+    width: 20%;
+  }
+  
+  .hour {
+    font-family: Outfit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1rem;
+    letter-spacing: 0.0015em;
+    margin-block: 1.5rem 1rem;
+  }
+
+  .bus-time-header {
+    width: 76.375%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .table {
+    width: fit-content;
+  }
+
+  .table-hr {
+    font-family: Outfit, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.0015em;
+    text-align: left;
+  }
+
+  .table-edit {
+    cursor: pointer;
+  }
+  
+  .opening-timee {
+    width: fit-content;
+    /* display: flex;
+    justify-content: center;
+    align-items: first baseline; */
+    gap: 1.5rem;
+  }
+  
+  .openn, .table-edit {
+    font-family: Outfit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em;
+    text-align: right;
+    width: 30%;
+    cursor: pointer;
+    color: rgba(95, 97, 168, 1);
+  }
+  
+  .time-rangee {
+    font-family: Outfit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1rem;
+    letter-spacing: 0.0015em;
+    padding-block: 0.5rem;
+    text-align: center;
+  }
+  
+  
+  .customer_review{
+    /* margin-left: 7.5%; */
+    overflow-y: hidden;
+    margin-top: 1.75rem;
+  }
+  
+  
+  

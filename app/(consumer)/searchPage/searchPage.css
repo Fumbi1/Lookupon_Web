@@ -18,6 +18,7 @@ main{
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
+    align-items: center;
 }
 
 .searchbar{
@@ -37,6 +38,7 @@ main{
     background-color: #5F61A8;
     color: #FFFFFF;
     width: fit-content;
+    height: fit-content;
     padding: 1.25rem 1.5rem;
     border-radius: 0.25rem;
     border: none;

@@ -1,0 +1,65 @@
+form {
+    margin-top: 7rem;
+    width: fit-content;
+    margin-inline: auto;
+}
+
+.business_name {
+    font-family: Outfit, sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 2.5rem; 
+}
+
+.edit_wrap {
+    margin-top: 1.375rem;
+    border: 1px solid var(--Secondary-main, rgba(114, 112, 125, 1));
+    padding-inline: 1.5rem;
+    padding-block: 1.125rem 3rem;
+}
+
+.notice {
+    font-family: Outfit;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em;
+    color: var(--Secondary-main, rgba(114, 112, 125, 1));
+ 
+}
+
+textarea {
+    padding: 0.5rem;
+    font-family: Outfit, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em;
+}
+
+.attach {
+    font-family: Outfit, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 2rem;
+    padding-block: 2rem 1rem;
+}
+
+.add_image {
+    width: 100%;
+}
+
+.save_btn {
+    margin-block: 2.5rem 4rem;
+    font-family: Outfit, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em;
+    width: fit-content;
+    background: var(--Primary-light-main, rgba(223, 220, 254, 1));
+    padding: 0.625rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+}

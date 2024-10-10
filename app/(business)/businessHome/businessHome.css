@@ -1,0 +1,96 @@
+.business-intro{
+    margin-top: 9rem;
+    text-align: center;
+    font-family: Outfit, sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 3.75rem;
+    
+}
+
+.distinct {
+    color: #5F61A8;
+}
+
+.business-introo{
+    text-align: center;
+    font-family: Outfit, sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 3.75rem;
+}
+
+.business-desc{
+    text-align: center;
+    font-family: Outfit;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.business-slider {
+    width: fit-content;
+    margin-inline: auto;
+}
+
+.business-desc-flex {
+    display: flex;
+    flex-direction: row;
+    width: 85%;
+    margin-inline: auto;
+    background: linear-gradient(270deg, rgba(223, 220, 254, 0.4) 6.5%, rgba(228, 225, 249, 0.5) 26.5%, rgba(219, 217, 242, 0.04) 62.63%);
+    justify-content: space-around;
+    align-items: center;
+    margin-block: 2rem;
+    padding-block: 3rem;
+}
+
+.bus-desc-left {
+    width: 35%;
+}
+
+.preamble {
+    font-family: Outfit, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;  
+}
+
+.lists {
+    font-family: Outfit, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+}
+
+.tick-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5px;
+    margin-block: 0.5rem;
+}
+
+.tick-div {
+    width: fit-content;
+    margin-right: 0.75rem;
+}
+
+.business-sign-up {
+    width: 100%;
+    text-align: center;
+    background: var(--Primary-main, #5F61A8);
+    padding-block: 0.625rem;
+    font-family: Outfit, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.0015em;
+    color: #FFF; 
+    border: none;
+    border-radius: 0.25rem;
+    margin-top: 0.5rem;
+}

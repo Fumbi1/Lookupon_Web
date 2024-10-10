@@ -1,5 +1,7 @@
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import "./card.css"
+
 
 const BusinessCard = ({
   img,
@@ -8,8 +10,10 @@ const BusinessCard = ({
   menu,
   comment,
 }) => {
+
+  const route = useRouter()
   return (
-    <div className="business-card">
+    <div className="business-card" onClick={() => route.push("/businessProfile")}>
       <Image className="business-pic" src={img} height="252" width="360" alt="omooo"/>
       <div className="card-details">
         <p className="card-name">{namee}</p>

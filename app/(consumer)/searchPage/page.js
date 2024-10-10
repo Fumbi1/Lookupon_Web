@@ -15,6 +15,7 @@ const searchResults = () => {
   const toggleGridDisplay = () => {
     setGrid(prev => !prev);
   }
+  
   return (
     <main>
       <div className="wrap">

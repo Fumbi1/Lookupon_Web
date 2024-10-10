@@ -1,0 +1,141 @@
+form{
+    width: fit-content;
+    height: fit-content;
+}
+
+.form-header{
+    font-family: Outfit;
+    font-size: 2.875rem;
+    font-weight: 600;
+    line-height: 3.25rem;
+    text-align: center;
+}
+
+.form-desc{
+    font-family: Outfit;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.0015em;
+    text-align: center;
+}
+
+.button-wrap{
+    width: fit-content;
+    margin-inline: auto;
+    position: relative;
+    margin-block: 3rem 1rem;
+}
+
+.google-icon{
+    position: absolute;
+    top: 50%;
+    left: 32.5%;
+    transform: translate(-22.5%, -50%);
+}
+
+.alt-signIn{
+    border: 1px solid #72707D;
+    border-radius: 0.25rem;
+    background: transparent;
+    font-family: Outfit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005rem;
+    padding: 0.625rem 15rem;
+    cursor: pointer;
+}
+
+.line-wrap{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: 1rem;
+}
+
+.line-wrap > p{
+    font-family: Outfit;
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.5rem;
+    color: #5F61A8;
+}
+
+.hr{
+    transform: rotate(0deg);
+    width: 46.25%;
+    height: 1px;
+    background-color: #5F61A8;
+}
+
+.row-input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name-wrap{
+    width: 47.5%;
+}
+
+.row-input > input{
+   width: fit-content;
+}
+
+input{
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    margin-block: 0.5rem;
+    font-family: Outfit;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+input::placeholder{
+    color: #5F61A8;
+    font-family: Outfit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em;
+}
+
+.sign-up-btn{
+    width: 100%;
+    text-align: center;
+    background-color: #5F61A8;
+    font-family: Outfit;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.875rem;
+    letter-spacing: 0.04rem;
+    padding-block: 0.625rem;
+    color: #FFFFFF;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.25rem;
+}
+
+.last-part{
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    font-family: Outfit;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.005em;
+}
+
+.last-part > a{
+    text-decoration: none;
+}

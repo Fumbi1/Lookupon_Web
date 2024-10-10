@@ -4,10 +4,9 @@ import Button from "@/components/button/page";
 import Link from "next/link";
 import Image from "next/image";
 import { ZodErrors } from "@/components/custom/zodErrors/zodErrors";
-import { useFormState } from "react-dom"
+import { useFormState } from "react-dom";
 import { registerUserAction } from "@/components/actions/auth-actions";
 import "./signUp.css";
-import { ZodError } from "zod";
 
 const INITIAL_STATE = {
   data: null,
@@ -25,7 +24,7 @@ const SignUpRoute = () => {
       <p className="form-desc">Connect with local businesses around you.</p>
       <div className="button-wrap">
         <Image src="/googleIcon.svg" width="18" height="18" className="google-icon"alt="google" />
-        <Button value="Continue with Google" className="alt-signIn" />
+        <Button value="Continue with Google" className="alt-signIn" onClick={null} />
       </div>
 
       <div className="line-wrap">
@@ -50,7 +49,7 @@ const SignUpRoute = () => {
       <input type="password" name="password" placeholder="Password" id="d" />
       <ZodErrors error={formState?.zodErrors?.password}/><br />
 
-      <Button type="submit" value="Sign in" className="sign-up-btn" />
+      <Button type="submit" value="Sign up" className="sign-up-btn" />
       <div className="last-part">
         <p>Already on Lookupon?</p>
         <Link href="/signIn">Sign in</Link>

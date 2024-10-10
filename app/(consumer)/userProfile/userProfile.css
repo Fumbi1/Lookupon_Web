@@ -1,0 +1,117 @@
+.user_flex {
+  margin-top: 7rem;
+  margin-inline: auto;
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.user_info {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3.5rem;
+}
+
+.username {
+  font-family: Outfit, sans-serif;
+  font-size: 1.75rem;
+  padding-block: 1.125rem;
+  font-weight: 500;
+  line-height: 2.25rem;
+  color: var(--Primary-text, rgba(6, 1, 50, 1));
+}
+
+.edit_btn {
+  width: fit-content;
+  font-family: Outfit, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  background-color: transparent;
+  letter-spacing: 0.005em;
+  padding: 0.625rem 1.5rem;
+  border: 1px solid var(--Secondary-main, rgba(114, 112, 125, 1));
+}
+
+.user_reviews {
+  width: 60%;
+}
+
+.title {
+  font-family: Outfit, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  margin-bottom: 1.5rem;
+}
+
+.user_id_wrap {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.875rem;
+}
+
+.user_details,
+.other_details {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.options {
+  display: flex;
+  width: fit-content;
+  gap: 2rem;
+}
+
+.user_name {
+  font-family: Outfit, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.0015em;
+}
+
+.comment_date {
+  font-family: Outfit;
+  font-size: 0.825rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: 0.0025em;
+  color: var(--Secondary-main, rgba(114, 112, 125, 1));
+}
+
+.review_comment {
+  margin-block: 0.75rem 2.5rem;
+  width: 90%;
+}
+
+.review_comment > p {
+  font-family: Outfit, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.005em;
+  text-align: left;
+  color: var(--Secondary-dark, rgba(23, 23, 26, 1));
+}
+
+.image_flex {
+  margin-top: 1rem;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}

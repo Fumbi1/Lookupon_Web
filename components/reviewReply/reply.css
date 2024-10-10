@@ -1,0 +1,42 @@
+.reply-field {
+    width: 100%;
+    position: relative;
+}
+
+.reply-field > input {
+    width: 90%;
+    padding: 0.5rem;
+    padding-right: 5%;
+    border-top: 0.5px solid #72707D;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    margin-block: 1rem 1.5rem;
+    color: #5F61A8;
+    font-family: Outfit, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em;
+}
+
+.reply-field > input:focus {
+    outline: none;
+}
+
+.reply-field > input::placeholder {
+    color: #72707D;
+    font-family: Outfit, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em;
+}
+
+.send-wrap {
+    width: fit-content;
+    position: absolute;
+    top: 27.5%;
+    right: 11.25%;
+}
+

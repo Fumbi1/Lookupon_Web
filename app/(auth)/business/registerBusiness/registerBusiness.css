@@ -1,0 +1,48 @@
+.bus-form-header{
+    font-family: Outfit, sans-serif;
+    font-size: 2.75rem;
+    font-weight: 600;
+    line-height: 3.25rem;
+    text-align: center;
+}
+
+.bus-form-desc {
+    font-family: Outfit, sans-serif;
+    font-size: 1.25rem;
+    width: 40dvw;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.0015em;
+    text-align: center;
+    margin-block: 1rem 2rem;
+    color: var(--Secondary-main, #72707D);
+}
+
+.bus-name {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    font-family: Outfit, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em;
+    border: none;
+    /* border: 1px solid var(--Secondary-main); */
+    /* border-radius: 0.5rem; */
+    outline: none;
+}
+
+.fieldset {
+    border-radius: 0.5rem;
+}
+
+.legend {
+    font-family: Outfit, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1rem;
+    letter-spacing: 0.005em;
+    color: #72707D;
+    margin-left: 0.75rem;
+}

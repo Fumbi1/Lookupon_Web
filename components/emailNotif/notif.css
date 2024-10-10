@@ -1,0 +1,51 @@
+.email_notif_wrap {
+}
+
+.alerts {
+  font-family: Outfit, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.0015em;
+}
+
+.linne {
+  margin-block: 0.5rem 1rem;
+  width: 50%;
+}
+
+.titlee {
+    font-family: Outfit, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.005em;
+    color: var(--Secondary-main, rgba(114, 112, 125, 1));
+    
+}
+
+.otherss {
+  font-family: Outfit, sans-serif;
+  font-size: 14px;
+  /* margin-bottom: 1.5rem; */
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.005em;
+  color: var(--Secondary-main, rgba(114, 112, 125, 1));
+
+}
+
+.edit_password_btn {
+  font-family: Outfit, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.005em;
+  width: fit-content;
+  background: var(--Primary-light-main, rgba(223, 220, 254, 1));
+  padding: 0.625rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 10rem;
+}

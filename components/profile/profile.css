@@ -1,0 +1,110 @@
+.user_photo_section {
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.change_pic_btn {
+  width: fit-content;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-family: Outfit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.005em;
+  color: rgba(6, 1, 50, 1);
+  background-color: transparent;
+  border-radius: 0.25rem;
+  border: 1px solid var(--Secondary-main, rgba(114, 112, 125, 1));
+}
+
+.delete_pic_btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: Outfit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  letter-spacing: 0.005em;
+  color: var(--Error-main, rgba(220, 54, 46, 1));
+}
+
+input[type="text"] {
+  margin-block: 22px;
+  width: 50%;
+  font-family: Outfit, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;
+  line-height: 1.5rem;
+  letter-spacing: 0.005em;
+  padding: 0.5rem 1rem;
+  outline: none;
+}
+
+input[type="text"]::placeholder {
+  font-family: Outfit, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.005em;
+}
+
+.gender {
+  font-family: Outfit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.0015em;
+}
+
+input[type="radio"] {
+  margin-top: 1rem;
+}
+
+label {
+  font-family: Outfit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.0015em;
+  margin-left: 0.825rem;
+}
+
+.btns_flex {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  margin-top: 8rem;
+}
+
+.save_btn {
+  font-family: Outfit, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.005em;
+  width: fit-content;
+  background: var(--Primary-light-main, rgba(223, 220, 254, 1));
+  padding: 0.625rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.cancel_btn {
+  font-family: Outfit, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.005em;
+  width: fit-content;
+  background: transparent;
+  padding: 0.625rem 1.5rem;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,126 @@
+.first-section{
+    margin-top: 8.75rem;
+}
+
+.intro-header{
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 4rem;
+    color: #060132;
+    text-align: center;
+    line-height: 4rem;
+}
+
+.intro-desc{
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.25rem;
+    color: #72707D;
+    text-align: center;
+    line-height: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.search-wrap{
+    width: 50%;
+    margin-inline: auto;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.searchbar{
+    width: 85%;
+    padding: 1rem 1.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid  #72707D;
+    font-size: 1rem;
+    color: #060132;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.searchbar::placeholder{
+    font-size: 1rem;
+    color: #72707D;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.searchbar:focus{
+    outline: none;
+    border: none;
+}
+
+.button{
+    background-color: #5F61A8;
+    color: #FFFFFF;
+    width: fit-content;
+    height: fit-content;
+    padding: 1.25rem 1.5rem;
+    border-radius: 0.25rem;
+    border: none;
+    font-weight: 600;
+}
+
+.categories-section{
+    width: fit-content;
+    margin-inline: auto;
+}
+
+.categories-header{
+    margin-block: 3rem 1rem;
+    font-size: 1.25rem;
+    color: #060132;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.category-grid{
+    display: grid;
+    gap: 2.8rem;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.category{
+    width: fit-content;
+    max-width: 11.69rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 4.25rem;
+    padding-block: 3.5rem;
+    border: 1px solid var(--Secondary-light, rgba(242, 242, 242, 1));
+    border-radius: 0.5rem;
+    background-color: #FFF;
+    box-shadow: 1px 1px 1px 2px #F2F2F2;
+}
+
+.category-title{
+    font-size: 1.25rem;
+    color: #060132;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    text-align: center;
+}
+
+.business-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+}

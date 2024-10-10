@@ -1,5 +1,7 @@
 "use server";
-import { ZodError, z } from "zod"
+import { z } from "zod";
+
+
 const schemaRegister = z.object({
     first_name: z.string({
         required_error: "First name is required",
@@ -26,6 +28,18 @@ const schemaRegister = z.object({
 })
 
 
+const schemaLogin = z.object({
+    email: z.string().email({
+        message: "Kindly input a valid email address",
+    }),
+    password: z.string().min(6, {
+        message: "Password must be between 6 and 20 characters",
+    }).max(20, {
+        message: "Password must be between 6 and 20 characters",
+    }),
+})
+
+
 export async function registerUserAction(prevState, formData){
     console.log("Working");
 
@@ -47,6 +61,30 @@ export async function registerUserAction(prevState, formData){
     return {
         ...prevState,
         data: validatedField,
+        zodErrors: null,
+        message: "Correct inputs!"
+    }
+}
+
+export async function loginUserAction(prevState, formData){
+    console.log("Working");
+
+    const validatedLoginField = schemaLogin.safeParse({
+        email: formData.get("email"),
+        password: formData.get("password")
+    });
+
+    if (!validatedLoginField.success) {
+        return {
+            ...prevState,
+            zodErrors: validatedLoginField.error.flatten().fieldErrors,
+            message: "Missing Fields failed to Login"
+        }
+    }
+
+    return {
+        ...prevState,
+        data: validatedLoginField,
         zodErrors: null,
         message: "Correct inputs!"
     }

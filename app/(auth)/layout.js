@@ -6,6 +6,7 @@ export default function AuthLayout({children}) {
         justifyContent: "center",
         alignItems: "center"
     }
+    
     return (
         <div style={styles}>
             {children}

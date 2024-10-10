@@ -9,7 +9,7 @@ const useToggle = () => {
         setToggle(!toggle);
     }
 
-    const switch2 =  () => {
+    const switch2 = () => {
         setToggle2(!toggle2);
     }
 
