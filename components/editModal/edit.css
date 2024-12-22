@@ -1,0 +1,115 @@
+.modal-wrapper {
+    width: 100%;
+    height: fit-content;
+    background-color: #fff;
+    padding-block: 4rem;
+}
+
+.input-wrapper {
+    width: 60%;
+    margin: auto;
+}
+
+.modal-header {
+    font-family: Outfit, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.0015em;
+    margin-bottom: 1rem;
+}
+
+.file-div {
+    width: 100%;
+    height: 10rem;
+    border: 1px solid #72707D;
+    margin-bottom: 7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.file-wrapper {
+    width: fit-content;
+    position: relative;
+}
+
+input[type=file] {
+    font-family: Outfit, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em; 
+    color: transparent;
+}
+
+input[type="file"]::file-selector-button {
+    width: fit-content;
+    border: none;
+    background-color: transparent;
+    color: transparent;
+    cursor: pointer;
+}
+
+input[type="file"]::before {
+    /* position: absolute; */
+    pointer-events: none;
+    color: #000;
+    content: "Drop your image here, or ";
+    /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230964B0'%3E%3Cpath d='M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zM7 9l1.41 1.41L11 7.83V16h2V7.83l2.59 2.58L17 9l-5-5-5 5z'/%3E%3C/svg%3E"); */
+  }
+
+input[type="file"]::after {
+    pointer-events: none;
+    position: absolute;
+    top: 5%;
+    right: 20%;
+    color: #0964b0;
+    content: "browse";
+}
+
+
+textarea {
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    box-sizing: border-box;
+    border: 1px solid #72707D;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    background-color: #fff;
+    resize: none;
+    font-family: Outfit, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em;
+    text-align: justified;
+    margin-bottom: 1.5rem;
+}
+
+.save-modal {
+    font-family: Outfit, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em;
+    color: #fff;
+    text-align: center;
+    background-color: #5F61A9;
+    border-radius: 0.25rem;
+    padding: 0.625rem 1.5rem;
+}
+
+.cancel-modal {
+    font-family: Outfit, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em;
+    text-align: center;
+    color: #17171A;
+    padding: 0.625rem 1.5rem;
+    background-color: #fff;
+}

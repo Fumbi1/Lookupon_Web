@@ -6,7 +6,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ZodErrors } from "@/components/custom/zodErrors/zodErrors";
 import { useFormState } from "react-dom"
-import { loginUserAction } from "@/components/actions/auth-actions";
+import { loginUserAction, registerUserAction } from "@/components/actions/auth-actions";
+import { useRouter } from "next/navigation";
 import "./registerBusiness.css";
 
 const INITIAL_STATE = {
@@ -16,9 +17,11 @@ const INITIAL_STATE = {
 }
 
 const RegisterBusiness = () => {
-    const [formState, formAction] = useFormState(loginUserAction, INITIAL_STATE);
+    const [formState, formAction] = useFormState(registerUserAction, INITIAL_STATE);
 
     console.log(formState, "client");
+
+    const route = useRouter()
     return (
         <form action={formAction}>
             <p className="bus-form-header">What is your business name?</p>
@@ -30,16 +33,13 @@ const RegisterBusiness = () => {
                 <legend className="legend">
                     Business Name
                 </legend>
-                <input type="text" name="businessName" id="one" className="bus-name" placeholder="Hotsoup ‘n’ More"/>
-                <ZodErrors error={formState?.zodErrors?.email} />
+                <input type="text" name="businessName" id="one" className="bus-name" placeholder="Hotsoup ‘n’ More" />
             </fieldset>
+            <ZodErrors error={formState?.zodErrors?.first_name} />
             <br />
 
-            <Button type="submit" value="Sign in" className="sign-up-btn" />
-            <div className="last-part">
-                <p>Not yet on Lookupon?</p>
-                <Link href="/signUp">Sign up</Link>
-            </div>
+            <Button type="submit" value="Continue" className="bus-reg-btn" onClick={() => route.push("./describeBusiness")} />
+            
         </form>
     );
 };

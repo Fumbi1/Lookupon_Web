@@ -1,4 +1,4 @@
-.bus-form-header{
+.bus-form-header {
     font-family: Outfit, sans-serif;
     font-size: 2.75rem;
     font-weight: 600;
@@ -9,7 +9,7 @@
 .bus-form-desc {
     font-family: Outfit, sans-serif;
     font-size: 1.25rem;
-    width: 40dvw;
+    max-width: 37.5dvw;
     font-weight: 500;
     line-height: 1.5rem;
     letter-spacing: 0.0015em;
@@ -57,6 +57,22 @@
     border: none;
     border-radius: 0.25rem;
     color: #FFF;
+    font-family: Outfit, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.005em;
+}
+
+.bus-reg-btn2 {
+    margin-top: 1rem;
+    width: 100%;
+    margin-inline: auto;
+    padding-block: 0.75rem;
+    background-color: transparent;
+    border: none;
+    border-radius: 0.25rem;
+    color: #000;
     font-family: Outfit, sans-serif;
     font-size: 1rem;
     font-weight: 500;

@@ -51,7 +51,7 @@ const BusinessSignUpRoute = () => {
       <input type="password" name="password" placeholder="Password" id="d" />
       <ZodErrors error={formState?.zodErrors?.password}/><br />
 
-      <Button type="submit" value="Sign up" className="sign-up-btn" />
+      <Button type="submit" value="Sign up" className="sign-up-btn" onClick={() => route.push("./registerBusiness")}/>
       <div className="last-part">
         <p>Already have a business account?</p>
         <Link href="/business/signIn">Sign in</Link>

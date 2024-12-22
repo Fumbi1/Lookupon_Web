@@ -40,7 +40,7 @@ const UserProfile = () => {
                   </div>
 
                   <div className="options">
-                    <Link href={'/paths/editReview'}>
+                    <Link href={'/editReview'}>
                         <Image
                           src={"/edit.svg"}
                           alt={"edit"}
