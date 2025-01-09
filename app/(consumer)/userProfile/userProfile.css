@@ -24,6 +24,7 @@
   font-weight: 500;
   line-height: 2.25rem;
   color: var(--Primary-text, rgba(6, 1, 50, 1));
+  text-align: center;
 }
 
 .edit_btn {
@@ -96,7 +97,7 @@
   width: 90%;
 }
 
-.review_comment > p {
+.review_comment>p {
   font-family: Outfit, sans-serif;
   font-size: 1rem;
   font-weight: 500;
