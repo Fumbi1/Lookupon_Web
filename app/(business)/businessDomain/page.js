@@ -74,6 +74,11 @@ function BusinessDomain() {
     setModal(true)
   }
 
+  const onClickEffect3  = () => {
+    setModalType("Business Hours")
+    setModal(true)
+  }
+
   return (
     <main className="main">
 
@@ -252,7 +257,7 @@ function BusinessDomain() {
               <p className="table-hr">
                 Business Hours
               </p>
-              <p className="table-edit">
+              <p className="table-edit" onClick={onClickEffect3}>
                 Edit
               </p>
             </div>
