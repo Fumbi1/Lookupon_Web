@@ -4,16 +4,34 @@ import Image from "next/image";
 import "./domain.css";
 import Button from "@/components/button/page";
 import Review from "@/components/reviewSection/page";
+import EditModal from "@/components/editModal/edit";
 import { openingHours } from "@/app/utils/arrays";
 import Catalogue from "@/components/catalogue/page";
 import { catalogueImages } from "@/app/utils/arrays";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function BusinessDomain() {
   const [catalog, setCatalog] = useState(false)
-
-
-  const [imagee, setImagee] = useState(catalogueImages[0])
+  const [modalType, setModalType] = useState("")
+  const [modal, setModal] = useState(false)
+  const [editBusiness, setEditBusiness] = useState({
+    description: "",
+    business_photos: [
+      // "/frame1.svg",
+      // "/frame2.svg",
+      // "/frame3.svg",
+      // "/frame4.svg",
+      // "/frame5.svg",
+    ],
+    catalog: []
+  })
+  const [imagee, setImagee] = useState(catalogueImages[0]);
+  const [catImg, setCatImg] = useState([
+    // "/stacked-card.svg",
+    // "/stacked-card-1.svg",
+    // "/stacked-card-2.svg",
+    // "/stacked-card-3.svg",
+  ])
 
   const focusedImage = (e) => {
     let currentImage = e.target.src;
@@ -21,9 +39,56 @@ function BusinessDomain() {
     console.log(currentImage)
   }
 
+  const saveDesc = (e) => {
+    const text = e.target.value;
+    setEditBusiness(prev =>({
+      ...prev,
+      description: text
+    }))
+  }
+
+  const selectedPhotos = (e) => {
+    const files = Array.from(e.target.files);
+    // If you need URLs to display the images
+    const fileUrls = files.map(file => URL.createObjectURL(file));
+
+    console.log(files);
+
+    setEditBusiness(prevState => ({
+      ...prevState,
+      business_photos: [...fileUrls, ...prevState.business_photos]
+    }));
+  };
+
+  useEffect(() => {
+    console.log(editBusiness.business_photos)
+  }, [editBusiness])
+
+  const onClickEffect = () => {
+    setModalType("Add photo")
+    setModal(true)
+  }
+
+  const onClickEffect2 = () => {
+    setModalType("Description")
+    setModal(true)
+  }
+
+  const onClickEffect3  = () => {
+    setModalType("Business Hours")
+    setModal(true)
+  }
 
   return (
     <main className="main">
+
+      {
+        modal && (
+          <div className="edit-modal">
+            <EditModal Header={modalType} onChange={selectedPhotos} textUpdate={saveDesc} saveModal={() => setModal(false)}/>
+          </div>
+        )
+      }
 
       {
         catalog &&
@@ -73,74 +138,58 @@ function BusinessDomain() {
       <div className="side-wrap">
         <div className="left-wrapper">
           <div className="business-desc">
-            <div class="custom-wrap">
+            <div className="custom-wrap">
               <p className="desc-title">Description</p>
-              <p className="openn">Edit description</p>
+              <p className="openn" onClick={onClickEffect2}>Edit description</p>
             </div>
-            <p className="desc-content">
-              Hotsoup is one super amazing restaurant that selects the finest of
-              products to carefully produce awesome snacks, soups, local,
-              continental and intercontinental dishes which promised to bring
-              you back for more. We’d rather you experience this for yourself.
+            <p className={editBusiness.description === "" ? "desc-content-empty" : "desc-content"}>
+              {...editBusiness.description || "No description"}
             </p>
           </div>
+          <hr className="line2" />
 
           <div className="photos">
             <div className="photos-wrap">
-              <div class="custom-wrap">
-                <p className="desc-title">Business Photos (12)</p>
-                <p className="openn">Add photo</p>
+              <div className="custom-wrap">
+                <p className="desc-title">Business Photos ({editBusiness.business_photos.length})</p>
+                <p className="openn" onClick={onClickEffect}>Add photo</p>
               </div>
-              <div className="business-photos">
-                <Image src="/frame1.svg" alt="food" height="112" width="152" />
-                <Image src="/frame2.svg" alt="food" height="112" width="152" />
-                <Image src="/frame3.svg" alt="food" height="112" width="152" />
-                <Image src="/frame4.svg" alt="food" height="112" width="152" />
-                <Image src="/frame5.svg" alt="food" height="112" width="152" />
+              <div className={editBusiness.business_photos.length !== 0 ? "business-photos" : "desc-content-empty"}>
+                {editBusiness.business_photos.length !== 0 ? editBusiness.business_photos.map((image, key) => {
+                  return <Image src={image} alt="food" height="112" width="152" key={key} />
+                }) : "No photos"
+                }
               </div>
             </div>
-            <hr className="line" />
+            <hr className="line2" />
 
             <div className="photos-wrap">
-              <div class="custom-wrap">
+              <div className="custom-wrap">
                 <p className="desc-title">Catalogue</p>
                 <p className="openn">Add item</p>
               </div>
 
-              <div className="custom-wrap">
-                <Image
-                  src="/stacked-card.svg"
-                  alt="food"
-                  height="178"
-                  width="178"
-                  onClick={() => setCatalog(true)}
-                />
-                <Image
-                  src="/stacked-card-1.svg"
-                  alt="food"
-                  height="178"
-                  width="178"
-                />
-                <Image
-                  src="/stacked-card-2.svg"
-                  alt="food"
-                  height="178"
-                  width="178"
-                />
-                <Image
-                  src="/stacked-card-3.svg"
-                  alt="food"
-                  height="178"
-                  width="178"
-                />
+              <div className={catImg.length !== 0 ? "custom-wrap" : "desc-content-empty"}>
+                {catImg.length !== 0 ?
+                  catImg.map((frontImage, i) => {
+                    return <Image
+                      src={frontImage}
+                      key={i}
+                      alt="food"
+                      height="178"
+                      width="178"
+                      onClick={() => setCatalog(true)}
+                    />
+                  }) : "No items"
+                }
               </div>
             </div>
           </div>
-          <hr className="line" />
+          <hr className="line2" />
           <div className="comments-wrap">
             <div className="review">
               <p className="review-p">Reviews</p>
-              <div>
+              <div className="filter-div">
                 <label htmlFor="">Filter:</label>
                 <select name="" id="">
                   <option value="">All Ratings</option>
@@ -208,7 +257,7 @@ function BusinessDomain() {
               <p className="table-hr">
                 Business Hours
               </p>
-              <p className="table-edit">
+              <p className="table-edit" onClick={onClickEffect3}>
                 Edit
               </p>
             </div>

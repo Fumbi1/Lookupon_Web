@@ -61,13 +61,13 @@ const UserProfile = () => {
                   </div>
 
                   <div className="options">
-                    <Link href={"/paths/editReview"}>
-                      <Image
-                        src={"/edit.svg"}
-                        alt={"edit"}
-                        width={"18"}
-                        height={"18"}
-                      />
+                    <Link href={'/editReview'}>
+                        <Image
+                          src={"/edit.svg"}
+                          alt={"edit"}
+                          width={"18"}
+                          height={"18"}
+                        />
                     </Link>
                     <Link href={""}>
                       <Image

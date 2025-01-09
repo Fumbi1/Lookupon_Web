@@ -15,9 +15,9 @@ const BusinessReply = () => {
 
     return (
         <div>
-            <div class="reply-field">
+            <div className="reply-field">
                 <input type="text" placeholder="Send a reply" name="reply" value={input} onChange={message}/>
-                <div class="send-wrap">
+                <div className="send-wrap">
                     <Image src={"/send_24px.svg"} alt="oomo" layout="responsive" width={24} height={24} onClick={() => console.log(input)} />
                 </div>
             </div>

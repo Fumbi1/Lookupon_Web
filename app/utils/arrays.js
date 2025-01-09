@@ -256,4 +256,27 @@ const catalogueImages = [
   "/media-5.svg",
 ]
 
-export { categories, cards, search_Results, openingHours, reviewSection, catalogueImages };
+const businessCategories = [
+  "Active Life",
+  "Automotive",
+  "Beauty & Spas",
+  "Food",
+  "Home Services",
+  "Shopping",
+  "Education",
+  "Professional Services",
+  "Nightlife",
+  "Restaurants",
+  "Religious Organizations",
+  "Health & Medical",
+  "Pets",
+  "Arts & Entertainment",
+  "Financial Services",
+  "Public Services & Government",
+  "Event Planning & Services",
+  "Bicycles",
+  "Local Flavour",
+  "Mass Media",
+]
+
+export { categories, cards, search_Results, openingHours, reviewSection, catalogueImages, businessCategories };
