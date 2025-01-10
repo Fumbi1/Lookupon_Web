@@ -3,17 +3,19 @@ import Image from "next/image";
 import SignInNav from "./SignInNav";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./nav.css";
 import Link from "next/link";
 import useToggle from "/app/hooks/useToggle";
+import useUser from "@/hooks/use-auth";
 
 const Nav = () => {
-  const [state, setState] = useState(true);
+  const { accessToken } = useUser();
+
+  const isSignedIn = Boolean(accessToken);
+  const [state, setState] = useState(false);
 
   const { switch1, switch2, toggle, toggle2 } = useToggle();
-
- 
 
   const route = useRouter();
 
@@ -26,18 +28,24 @@ const Nav = () => {
 
   return (
     <div>
-      {!state ? (
+      {!isSignedIn ? (
         <SignInNav />
       ) : (
         <div className="nav-wrap">
           <div className="nav-flex">
             <Link href="/" className="logo">
-              <Image src="/logo.svg" width="172" height="32" alt="omooo" layout="responsive"/>
+              <Image
+                src="/logo.svg"
+                width="172"
+                height="32"
+                alt="omooo"
+                layout="responsive"
+              />
             </Link>
             <div className="userFn">
               <div className="user-wrap">
                 <div className="dropdown-wrap">
-                  <div className="business" >
+                  <div className="business">
                     <div onClick={switch1} className="dropdown-control">
                       <div>
                         <p className="review">Lookupon for business</p>
@@ -52,7 +60,10 @@ const Nav = () => {
                     </div>
                     <div className={toggle ? "dropdown" : "dropdown-off"}>
                       <p className="dropdown-list">Add a business</p>
-                      <p className="dropdown-list" onClick={() => route.push("/businessHome")}>
+                      <p
+                        className="dropdown-list"
+                        onClick={() => route.push("/businessHome")}
+                      >
                         Sign in to business account
                       </p>
                     </div>
