@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   updateUserProfile,
   updateUserProfileImage,
@@ -21,6 +21,17 @@ const Profile = () => {
     alias: user?.alias || "",
     gender: user?.gender || "",
   });
+
+  useEffect(() => {
+    setFormData(
+      {
+        first_name: user?.first_name || "",
+        last_name: user?.last_name || "",
+        alias: user?.alias || "",
+        gender: user?.gender || "",
+      }
+    )
+  }, [accessToken])
 
   const handleChange = (e) => {
     setFormData({

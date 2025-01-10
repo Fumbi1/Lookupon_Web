@@ -13,7 +13,11 @@ const Nav = () => {
   const { accessToken } = useUser();
 
   const isSignedIn = Boolean(accessToken);
-  const [state, setState] = useState(false);
+  const [state, setState] = useState(isSignedIn);
+
+  useEffect(() => {
+    setState(isSignedIn)
+  }, [isSignedIn])
 
   const { switch1, switch2, toggle, toggle2 } = useToggle();
 
@@ -28,7 +32,7 @@ const Nav = () => {
 
   return (
     <div>
-      {!isSignedIn ? (
+      {!state ? (
         <SignInNav />
       ) : (
         <div className="nav-wrap">
