@@ -20,13 +20,7 @@
     "zod": "^3.23.4",
     "zustand": "^5.0.2",
     "tailwind-merge": "^2.5.3",
-<<<<<<< HEAD
-    "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.23.4",
-    "zustand": "^5.0.3"
-=======
     "tailwindcss-animate": "^1.0.7"
->>>>>>> c5b6b53277b48e02cd0ce95563461c1ab56da88a
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
