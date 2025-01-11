@@ -178,6 +178,14 @@
   letter-spacing: 0.0015rem;
 }
 
+.user-side-catalogue {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .business-photos {
   width: fit-content;
   display: flex;

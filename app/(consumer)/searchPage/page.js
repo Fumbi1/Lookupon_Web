@@ -21,7 +21,7 @@ const searchResults = () => {
       <div className="wrap">
         <div className="search-wrapp">
           <SearchBar className="searchbar" type="text" placeholder="e.g Food" />
-          <Button className="button2" value="Search" />
+          <Button className="searchpage-button" value="Search" />
         </div>
 
         <div className="option-flex">

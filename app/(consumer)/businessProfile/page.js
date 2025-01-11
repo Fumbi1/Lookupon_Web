@@ -95,7 +95,7 @@ function BusinessProfile() {
             <div className="photos-wrap">
               <p>Catalogue</p>
 
-              <div>
+              <div className="user-side-catalogue">
                 <Image
                   src="/stacked-card.svg"
                   alt="food"

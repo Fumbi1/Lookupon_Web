@@ -54,15 +54,15 @@ const SignInRoute = () => {
         <hr className="hr" />
       </div>
 
-      <input type="email" name="email" placeholder="Email" id="c" />
+      <input className="login-input" type="email" name="email" placeholder="Email" id="c" />
       <ZodErrors error={formState?.zodErrors?.email} />
       <br />
-      <input type="password" name="password" placeholder="Password" id="d" />
+      <input className="login-input" type="password" name="password" placeholder="Password" id="d" />
       <ZodErrors error={formState?.zodErrors?.password} />
       <br />
 
       <Button type="submit" value="Sign in" className="sign-up-btn" />
-      <div className="last-part">
+      <div className="login-last-part">
         <p>Not yet on Lookupon?</p>
         <Link href="/signUp">Sign up</Link>
       </div>

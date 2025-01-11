@@ -27,7 +27,7 @@ export default function Home() {
 
         <div className="search-wrap">
           <SearchBar className="searchbar" type="search" placeholder="restaurant, makeup, clothing..."/>
-          <Button value="Search" type="search" className="button" onClick={results} />
+          <Button value="Search" type="search" className="home-button" onClick={results} />
         </div>
 
         <div className="display-wrap">

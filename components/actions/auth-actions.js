@@ -10,7 +10,7 @@ const schemaRegister = z.object({
       invalid_type_error: "Name must be a string",
     })
     .min(2, {
-      message: "First name must be at least 2 characters",
+      message: "Name must be at least 2 characters",
     })
     .regex(/^[A-Za-z]+$/, {
       message: "First name must contain only letters",
@@ -21,7 +21,7 @@ const schemaRegister = z.object({
       invalid_type_error: "Name must be a string",
     })
     .min(2, {
-      message: "Last name must be at least 2 characters",
+      message: "Name must be at least 2 characters",
     })
     .regex(/^[A-Za-z]+$/, {
       message: "First name must contain only letters",
@@ -63,6 +63,7 @@ export async function registerUserAction(prevState, formData) {
       ...prevState,
       zodErrors: validatedField.error.flatten().fieldErrors,
       message: "Missing Fields failed to register",
+      success: false,
     };
   }
 
@@ -84,6 +85,7 @@ export async function registerUserAction(prevState, formData) {
         ...prevState,
         zodErrors: null,
         message: errorResponse.msg || "Failed to sign up",
+        success: false,
       };
     }
 
@@ -96,6 +98,7 @@ export async function registerUserAction(prevState, formData) {
         data: validatedField.data,
         zodErrors: null,
         message: response.msg || "Registration successful!",
+        success: true,
       };
     }
   } catch (error) {
@@ -104,6 +107,7 @@ export async function registerUserAction(prevState, formData) {
       ...prevState,
       zodErrors: null,
       message: "An unexpected error occurred. Please try again.",
+      success: false,
     };
   }
 
@@ -112,6 +116,7 @@ export async function registerUserAction(prevState, formData) {
     ...prevState,
     zodErrors: null,
     message: "Unknown error",
+    success: false,
   };
 }
 
