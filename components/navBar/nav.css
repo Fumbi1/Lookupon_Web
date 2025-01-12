@@ -76,6 +76,7 @@
     #dfdcfe 137.46%,
     #5f61a8 148.75%
   );
+  z-index: 11;
   transition: all 500ms;
 }
 
@@ -97,6 +98,7 @@
     #dfdcfe 137.46%,
     #5f61a8 148.75%
   );
+  z-index: ;
   transition: all 500ms;
 }
 

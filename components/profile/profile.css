@@ -1,3 +1,8 @@
+.profile-settings {
+  width: 100%;
+
+}
+
 .user_photo_section {
   width: 45%;
   display: flex;
@@ -32,7 +37,7 @@
   color: var(--Error-main, rgba(220, 54, 46, 1));
 }
 
-input[type="text"] {
+.settings-name {
   margin-block: 22px;
   width: 50%;
   font-family: Outfit, sans-serif;
@@ -42,10 +47,11 @@ input[type="text"] {
   line-height: 1.5rem;
   letter-spacing: 0.005em;
   padding: 0.5rem 1rem;
-  outline: none;
+  border: 1px solid #000;
+  border-radius: 0.25rem;
 }
 
-input[type="text"]::placeholder {
+.settings-name::placeholder {
   font-family: Outfit, sans-serif;
   font-size: 1rem;
   font-weight: 500;

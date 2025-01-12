@@ -163,14 +163,13 @@
   margin-left: 7.5%;
 }
 
-.photos {
-}
+.photos {}
 
 .photos-wrap {
   /* margin-left: 7.5%; */
 }
 
-.photos-wrap > p {
+.photos-wrap>p {
   font-family: Outfit;
   font-size: 1rem;
   font-weight: 500;
@@ -186,6 +185,21 @@
   gap: 0.5rem;
 }
 
+.blink {
+  margin-top: 0.5rem;
+  animation: notice alternate 2s infinite;
+}
+
+@keyframes notice {
+  from {
+    color: #fff;
+  }
+
+  to {
+    color: #5f61a8;
+  }
+}
+
 .business-photos {
   width: fit-content;
   display: flex;
@@ -198,15 +212,72 @@
   /* margin-left: 7.5%; */
 }
 
-.review {
+.user-review {
   display: flex;
+  width: 90%;
   flex-direction: row;
   justify-content: space-between;
-  margin-block: 1rem;
+  margin-block: 2rem 3.5rem;
 }
 
 .review-p {
-  margin-block: 2rem 3.25rem;
+  color: #060132;
+  font-family: Outfit;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.ratings-sort {
+  position: relative;
+  z-index: 0;
+}
+
+.ratings-sort::before,
+.ratings-sort::after {
+  --size: 0.3rem;
+  position: absolute;
+  content: "";
+  right: 0.5rem;
+  pointer-events: none;
+}
+
+.ratings-sort::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid black;
+  top: 35%;
+}
+
+.ratings-sort::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid black;
+  top: 55%;
+  transform: rotate(180deg);
+}
+
+.ratings-label {
+  font-family: Outfit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.0015em;
+  margin-right: 0.5rem;
+  color: #72707D;
+}
+
+.ratings-select {
+  appearance: none;
+  width: fit-content;
+  padding: 6px 24px 6px 16px;
+  font-family: Outfit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.005em;
+  text-align: center;
+  color: #17171A;
+  cursor: grab;
 }
 
 .ratings-n-reviews {
@@ -258,7 +329,7 @@
   align-items: center;
 }
 
-.specific-rating-flex > p {
+.specific-rating-flex>p {
   font-family: Outfit;
   font-size: 1rem;
   font-weight: 500;
@@ -335,10 +406,66 @@
 }
 
 
-.customer_review{
+.customer_review {
   /* margin-left: 7.5%; */
   overflow-y: hidden;
   margin-top: 1.75rem;
+  margin-bottom: 1rem;
+  border-top: #060132 2px solid;
 }
 
+.table {
+  width: fit-content;
+}
 
+.table-hr {
+  font-family: Outfit, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.0015em;
+  text-align: left;
+}
+
+.table-edit {
+  cursor: pointer;
+}
+
+.opening-timee {
+  width: fit-content;
+  gap: 1.5rem;
+}
+
+.locationn {
+  font-family: Outfit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1rem;
+  letter-spacing: 0.0015em;
+  margin-bottom: 1rem;
+  text-align: left;
+  width: 20%;
+}
+
+.openn,
+.table-edit {
+  font-family: Outfit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.005em;
+  text-align: right;
+  width: 30%;
+  cursor: pointer;
+  color: rgba(95, 97, 168, 1);
+}
+
+.time-rangee {
+  font-family: Outfit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1rem;
+  letter-spacing: 0.0015em;
+  padding-block: 0.5rem;
+  text-align: center;
+}

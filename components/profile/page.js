@@ -79,7 +79,7 @@ const Profile = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="profile-settings" onSubmit={handleSubmit}>
         {/* Image section same as before */}
 
         <div className="user_photo_section">
@@ -104,6 +104,7 @@ const Profile = () => {
 
         <div>
           <input
+            className="settings-name"
             type="text"
             name="first_name"
             value={formData.first_name}
@@ -112,6 +113,7 @@ const Profile = () => {
           />
           <br />
           <input
+            className="settings-name"
             type="text"
             name="last_name"
             value={formData.last_name}
@@ -120,6 +122,7 @@ const Profile = () => {
           />
           <br />
           <input
+            className="settings-name"
             type="text"
             name="alias"
             value={formData.alias}

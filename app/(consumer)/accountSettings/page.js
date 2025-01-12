@@ -11,7 +11,7 @@ const AccountSettings = () => {
 
   return (
     <div>
-        <div className="flex_bar">
+        <div className="settings-flex_bar">
             <div className='settings_menu'>
                 <p className='settings_title'>Account Settings</p>
 

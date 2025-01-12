@@ -63,10 +63,10 @@ const Nav = () => {
                       />
                     </div>
                     <div className={toggle ? "dropdown" : "dropdown-off"}>
-                      <p className="dropdown-list">Add a business</p>
+                      <p className="dropdown-list"  onClick={() => route.push("/businessHome")}>Add a business</p>
                       <p
                         className="dropdown-list"
-                        onClick={() => route.push("/businessHome")}
+                        onClick={() => route.push("/business/signIn")}
                       >
                         Sign in to business account
                       </p>
