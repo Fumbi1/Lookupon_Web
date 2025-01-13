@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Button from "@/components/button/page";
+import { useRouter } from "next/navigation";
 import { reviewSection } from "@/app/utils/arrays";
 import Link from "next/link";
 import "./userProfile.css";
@@ -11,6 +12,8 @@ const UserProfile = () => {
   const { user } = useUser();
   
   const full_name = `${user?.first_name} ${user?.last_name}`
+
+  const route = useRouter()
 
   return (
     <div className="user_flex">
@@ -22,7 +25,9 @@ const UserProfile = () => {
           width="168"
         />
         <p className="username">{full_name}</p>
-        <Button value={"Edit Profile"} className={"edit_btn"} />
+        <Button value={"Edit Profile"} className={"edit_btn"} onClick={() => {
+          route.push("../accountSettings")
+        }} />
       </div>
       <div className="user_reviews">
         <p className="title">Reviews</p>
