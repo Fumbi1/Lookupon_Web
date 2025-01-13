@@ -1,5 +1,6 @@
 "use server";
 
+import { cookies } from 'next/headers';
 import { z } from "zod";
 
 
@@ -160,7 +161,17 @@ export async function loginUserAction(prevState, formData) {
     if (signIn.status === 200) {
       const response = await signIn.json();
       console.log(JSON.stringify(response.d, null, 2), "login response");
-      // const access_token = response?.d?.token
+      
+      cookies().set({
+        name: 'token',
+        value: response?.d?.token,
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 60 * 60 * 24 * 7 // 7 days
+      });
+
+
+
 
       return {
         ...prevState,
