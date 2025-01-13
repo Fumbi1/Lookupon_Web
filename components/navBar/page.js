@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import SignInNav from "./SignInNav";
-import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import "./nav.css";
@@ -22,13 +21,6 @@ const Nav = () => {
   const { switch1, switch2, toggle, toggle2 } = useToggle();
 
   const route = useRouter();
-
-  // Access current path
-  let currentPath = usePathname();
-
-  // Check if it's a specific route
-  const isSignUpPage = currentPath === "/signUp";
-  const isSignInPage = currentPath === "/signIn";
 
   return (
     <div>

@@ -4,29 +4,57 @@ import Button from "@/components/button/page";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { getUserProfile } from "@/libs/actions/profile.action";
 import { ZodErrors } from "@/components/custom/zodErrors/zodErrors";
 import { useFormState } from "react-dom";
 import { loginUserAction } from "@/components/actions/auth-actions";
 import "./signIn.css";
 import useUser from "@/hooks/use-auth";
+import { useCallback, useEffect } from "react";
 
 const INITIAL_STATE = {
   data: null,
+  token: null,
   zodErrors: null,
   message: null,
+  response: null,
 };
 
 const SignInRoute = () => {
-  const { setAccessToken } = useUser();
+  const { accessToken, setAccessToken, user, setUser } = useUser()
   const [formState, formAction] = useFormState(loginUserAction, INITIAL_STATE);
 
   const route = useRouter();
 
   // Handle successful login
+  // First block - handle token from form submission
+useEffect(() => {
   if (formState.token) {
     setAccessToken(formState.token);
+    console.log(formState.response)
+  }
+}, [formState.token]); // Only depends on formState.token
+
+// Second block - handle profile loading
+useEffect(() => {
+  const loadProfile = async () => {
+    if (!accessToken) return;
+    try {
+      const profile = await getUserProfile(accessToken);
+      console.log('profile:', profile);
+      console.log(accessToken)
+      setUser(profile);
+    } catch (error) {
+      console.error('Failed to load profile:', error);
+    }
+  };
+
+  if (accessToken) {
+    loadProfile();
     route.replace("/home");
   }
+}, [accessToken]); // Only depends on accessToken changes
+ 
 
   console.log(formState, "client");
   return (

@@ -1,7 +1,7 @@
 "use server";
 
 import { z } from "zod";
-import useUser from "@/hooks/use-auth";
+
 
 const schemaRegister = z.object({
   first_name: z
@@ -159,8 +159,8 @@ export async function loginUserAction(prevState, formData) {
 
     if (signIn.status === 200) {
       const response = await signIn.json();
-      // console.log(response.d);
-      // setAccessToken(response?.d?.token);
+      console.log(JSON.stringify(response.d, null, 2), "login response");
+      // const access_token = response?.d?.token
 
       return {
         ...prevState,
@@ -168,6 +168,7 @@ export async function loginUserAction(prevState, formData) {
         token: response?.d?.token,
         zodErrors: null,
         message: response.msg || "Login successful!",
+        response: response?.d
       };
     }
   } catch (error) {
