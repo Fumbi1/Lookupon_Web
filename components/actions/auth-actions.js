@@ -82,6 +82,7 @@ export async function registerUserAction(prevState, formData) {
 
     if (!signUp.ok) {
       const errorResponse = await signUp.json();
+
       return {
         ...prevState,
         zodErrors: null,
@@ -93,6 +94,7 @@ export async function registerUserAction(prevState, formData) {
     if (signUp.status === 200) {
       const response = await signUp.json();
       console.log(response.msg);
+
 
       return {
         ...prevState,

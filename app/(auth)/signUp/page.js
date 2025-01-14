@@ -1,10 +1,11 @@
 "use client";
 
+import { toast } from 'react-hot-toast';
 import Button from "@/components/button/page";
 import Link from "next/link";
 import Image from "next/image";
 import { ZodErrors } from "@/components/custom/zodErrors/zodErrors";
-import { useState } from "react";
+import { useEffect } from "react";
 import { useFormState } from "react-dom";
 import { registerUserAction } from "@/components/actions/auth-actions";
 import "./signUp.css";
@@ -17,12 +18,15 @@ const INITIAL_STATE = {
 };
 
 const SignUpRoute = () => {
-  const [showModal, setShowModal] = useState(false);
 
   const [formState, formAction] = useFormState(
     registerUserAction,
     INITIAL_STATE
   );
+
+  useEffect(() => {
+    (formState.success === false && formState.message !== null) && toast.error(`${formState.message}`)
+  }, [formState])
 
 
   console.log(formState, "client");
