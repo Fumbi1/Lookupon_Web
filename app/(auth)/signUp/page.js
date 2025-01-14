@@ -29,7 +29,7 @@ const SignUpRoute = () => {
 
   return (
     <>
-      {formState.success && (
+      {formState.success = true && (
         <div className="modal-overlay">
           <div className="modal-content">
             <h2 className="modal-title">Check Your Email</h2>

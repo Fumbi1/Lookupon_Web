@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 
 export function middleware(request) {
-    // Get that same token from cookies
+    // Get the token from cookies set in the login function
     const token = request.cookies.get('token')?.value;
 
     // If trying to access protected route without token
@@ -12,7 +12,7 @@ export function middleware(request) {
     return NextResponse.next();
 }
 
-// See "Matching Paths" below to learn more
+// Matching Paths
 export const config = {
-    matcher: ['/businessProfile', '/accountSettings', '/userProfile', '/editReview', '/businessDomain'],
+    matcher: ['/businessProfile', '/accountSettings', '/userProfile', '/editReview'],
 }
