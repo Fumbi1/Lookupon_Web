@@ -1,30 +1,43 @@
 "use client";
 import Image from "next/image";
+import { toast } from "react-hot-toast";
 import SignInNav from "./SignInNav";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import "./nav.css";
 import Link from "next/link";
 import useToggle from "/app/hooks/useToggle";
 import useUser from "@/hooks/use-auth";
+import { loguOutuserAction } from "../actions/auth-actions";
 
 const Nav = () => {
-  const { accessToken } = useUser();
-
+  const { accessToken, clearUser } = useUser();
   const isSignedIn = Boolean(accessToken);
-  const [state, setState] = useState(isSignedIn);
+  const route = useRouter();
+
 
   useEffect(() => {
-    setState(isSignedIn)
+    if (isSignedIn === false) {
+      toast.success("Logout Successful")
+      route.replace("/signIn")
+    }
   }, [isSignedIn])
+  
+
+  const SignOut = () => {
+    loguOutuserAction();
+    clearUser();
+  }
+
+  
 
   const { switch1, switch2, toggle, toggle2 } = useToggle();
 
-  const route = useRouter();
+ 
 
   return (
     <div>
-      {!state ? (
+      {!isSignedIn ? (
         <SignInNav />
       ) : (
         <div className="nav-wrap">
@@ -92,7 +105,10 @@ const Nav = () => {
                     >
                       Account settings
                     </p>
-                    <p className="dropdown-list">Sign Out</p>
+                    <p
+                    className="dropdown-list"
+                    onClick={SignOut}
+                    >Sign Out</p>
                   </div>
                 </div>
               </div>

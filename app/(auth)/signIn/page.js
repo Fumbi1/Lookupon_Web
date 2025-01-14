@@ -1,12 +1,13 @@
 "use client";
 
+import { toast } from 'react-hot-toast';
 import Button from "@/components/button/page";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { getUserProfile } from "@/libs/actions/profile.action";
 import { ZodErrors } from "@/components/custom/zodErrors/zodErrors";
-import { useFormState } from "react-dom";
+import { useFormState} from "react-dom";
 import { loginUserAction } from "@/components/actions/auth-actions";
 import "./signIn.css";
 import useUser from "@/hooks/use-auth";
@@ -17,11 +18,13 @@ const INITIAL_STATE = {
   token: null,
   zodErrors: null,
   message: null,
+  success: false,
   response: null,
 };
 
 const SignInRoute = () => {
   const { accessToken, setAccessToken, user, setUser } = useUser()
+  
   const [formState, formAction] = useFormState(loginUserAction, INITIAL_STATE);
 
   const route = useRouter();
@@ -35,6 +38,7 @@ useEffect(() => {
   }
 }, [formState.token]); // Only depends on formState.token
 
+
 // Second block - handle profile loading
 useEffect(() => {
   const loadProfile = async () => {
@@ -44,16 +48,18 @@ useEffect(() => {
       console.log('profile:', profile);
       console.log(accessToken)
       setUser(profile);
+      toast.success(`${formState.message}`)
     } catch (error) {
       console.error('Failed to load profile:', error);
+      toast.error(`${formState.message}`)
     }
   };
 
   if (accessToken) {
     loadProfile();
-    route.replace("/home");
+    route.replace("/");
   }
-}, [accessToken]); // Only depends on accessToken changes
+}, [accessToken, formState]); // Only depends on accessToken changes
  
 
   console.log(formState, "client");
@@ -89,7 +95,7 @@ useEffect(() => {
       <ZodErrors error={formState?.zodErrors?.password} />
       <br />
 
-      <Button type="submit" value="Sign in" className="sign-up-btn" />
+      <Button type="submit" value={ "Sign in"} className="sign-up-btn" />
       <div className="login-last-part">
         <p>Not yet on Lookupon?</p>
         <Link href="/signUp">Sign up</Link>

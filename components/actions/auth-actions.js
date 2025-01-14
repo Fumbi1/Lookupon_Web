@@ -136,6 +136,7 @@ export async function loginUserAction(prevState, formData) {
       ...prevState,
       zodErrors: validatedLoginField.error.flatten().fieldErrors,
       message: "Missing Fields failed to Login",
+      success: false,
     };
   }
 
@@ -157,6 +158,7 @@ export async function loginUserAction(prevState, formData) {
         ...prevState,
         zodErrors: null,
         message: errorResponse.msg || "Failed to sign in",
+        success: false,
       };
     }
 
@@ -181,6 +183,7 @@ export async function loginUserAction(prevState, formData) {
         token: response?.d?.token,
         zodErrors: null,
         message: response.msg || "Login successful!",
+        success: true,
         response: response?.d
       };
     }
@@ -190,6 +193,7 @@ export async function loginUserAction(prevState, formData) {
       ...prevState,
       zodErrors: null,
       message: "An unexpected error occurred. Please try again.",
+      success: false,
     };
   }
 
@@ -199,4 +203,13 @@ export async function loginUserAction(prevState, formData) {
     zodErrors: null,
     message: "Correct inputs!",
   };
+}
+
+export async function loguOutuserAction() {
+    cookies().set({
+      name: 'token',
+      value: '', // empty value
+      expires: new Date(0), // immediately expires the cookie
+      maxAge: 0 // or set maxAge to 0
+    });
 }

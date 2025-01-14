@@ -16,8 +16,10 @@
 }
 
 .social-icons{
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
     gap: 2rem;
+    cursor: pointer;
 }
 
 .link{
@@ -28,6 +30,7 @@
     font-weight: 500;
     font-style: normal;
     line-height: 1.5rem;
+    cursor: pointer;
 }
 
 .copyright{

@@ -6,16 +6,16 @@ const ChangePassword = () => {
     <div>
       <form action="" method="post">
         <div>
-          <input type="text" name="" id="" placeholder="Enter old password" />{" "}
+          <input className="password-input" type="text" name="" id="" placeholder="Enter old password" />{" "}
           <br />
-          <input
+          <input className="password-input"
             type="text"
             name=""
             id=""
             placeholder="Enter new password"
           />{" "}
           <br />
-          <input type="text" name="" id="" placeholder="Confirm new password" />
+          <input className="password-input" type="text" name="" id="" placeholder="Confirm new password" />
         </div>
 
         <Button

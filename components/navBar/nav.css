@@ -150,6 +150,14 @@
   margin-bottom: 1rem;
 }
 
+.dropdown-list:hover  {
+  text-decoration: underline;
+}
+
+.dropdown-list:active {
+  color: #5f61a8;
+}
+
 .userFn {
   width: fit-content;
   position: absolute;
