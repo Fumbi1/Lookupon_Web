@@ -16,19 +16,22 @@ const Nav = () => {
   const route = useRouter();
 
 
-  useEffect(() => {
-    if (isSignedIn === false) {
-      toast.success("Logout Successful")
-      route.replace("/signIn")
+  // useEffect(() => {
+  //   if (!accessToken && window.location.pathname !== '/signIn') {
+      
+  //   }
+  // }, [accessToken, route]);
+
+  const handleSignOut = async () => {
+    try {
+      await loguOutuserAction();
+      clearUser();
+      toast.success("Logout Successful");
+      route.replace("/signIn");
+    } catch (error) {
+      toast.error("Error signing out");
     }
-  }, [isSignedIn])
-  
-
-  const SignOut = () => {
-    loguOutuserAction();
-    clearUser();
-  }
-
+  };
   
 
   const { switch1, switch2, toggle, toggle2 } = useToggle();
@@ -107,7 +110,7 @@ const Nav = () => {
                     </p>
                     <p
                     className="dropdown-list"
-                    onClick={SignOut}
+                    onClick={handleSignOut}
                     >Sign Out</p>
                   </div>
                 </div>
