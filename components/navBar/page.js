@@ -3,7 +3,6 @@ import Image from "next/image";
 import { toast } from "react-hot-toast";
 import SignInNav from "./SignInNav";
 import { useRouter } from "next/navigation";
-import { useEffect} from "react";
 import "./nav.css";
 import Link from "next/link";
 import useToggle from "/app/hooks/useToggle";
