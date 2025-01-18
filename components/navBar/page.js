@@ -14,13 +14,6 @@ const Nav = () => {
   const isSignedIn = Boolean(accessToken);
   const route = useRouter();
 
-
-  // useEffect(() => {
-  //   if (!accessToken && window.location.pathname !== '/signIn') {
-      
-  //   }
-  // }, [accessToken, route]);
-
   const handleSignOut = async () => {
     try {
       await loguOutuserAction();
