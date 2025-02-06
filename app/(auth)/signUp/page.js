@@ -20,6 +20,9 @@ const SignUpRoute = () => {
     INITIAL_STATE
   );
 
+  if (formState.message) {
+  }
+
   console.log(formState, "client");
 
   return (

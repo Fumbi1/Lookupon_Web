@@ -4,7 +4,7 @@ import { useState } from "react";
 import {
   updateUserProfile,
   updateUserProfileImage,
-} from "@/libs/actions/profile.action";
+} from "@/lib/actions/profile.action";
 import useUser from "@/hooks/use-auth";
 import Button from "../button/page";
 import "./profile.css";
