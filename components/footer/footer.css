@@ -43,3 +43,17 @@
     line-height: 1.5rem;
     text-align: center;
 }
+
+@media(max-width: 724px) {
+    
+    .footer-content{
+        margin-bottom: 1.5rem;
+        width: 95%;
+        margin-inline: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+}

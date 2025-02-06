@@ -39,7 +39,7 @@ export default function Home() {
           <div className="category-grid">
             {categories.map((category) => {
               return (
-                <div className="category" key={category.id}>
+                <div className="homepage-category" key={category.id}>
                   <Image src={category.image} alt="omooo" width="48" height="48" />
                   <p className="category-title">{category.title}</p>
                 </div>
@@ -47,7 +47,7 @@ export default function Home() {
             })}
           </div>
 
-          <div>
+          <div className="business-grid-wrap">
             <p className="categories-header">
               Most Reviewed Businesses
             </p>
