@@ -1,6 +1,7 @@
 import "./globals.css";
-import Nav from "../components/navBar/page";
-import Footer from "../components/footer/page";
+import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = {
   title: "Lookupon",
@@ -12,7 +13,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <Toaster position="top-center" />
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

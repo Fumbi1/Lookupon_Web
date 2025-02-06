@@ -1,7 +1,8 @@
 "use server";
 
+import { cookies } from 'next/headers';
 import { z } from "zod";
-import useUser from "@/hooks/use-auth";
+
 
 const schemaRegister = z.object({
   first_name: z
@@ -10,7 +11,7 @@ const schemaRegister = z.object({
       invalid_type_error: "Name must be a string",
     })
     .min(2, {
-      message: "First name must be at least 2 characters",
+      message: "Name must be at least 2 characters",
     })
     .regex(/^[A-Za-z]+$/, {
       message: "First name must contain only letters",
@@ -21,7 +22,7 @@ const schemaRegister = z.object({
       invalid_type_error: "Name must be a string",
     })
     .min(2, {
-      message: "Last name must be at least 2 characters",
+      message: "Name must be at least 2 characters",
     })
     .regex(/^[A-Za-z]+$/, {
       message: "First name must contain only letters",
@@ -63,6 +64,7 @@ export async function registerUserAction(prevState, formData) {
       ...prevState,
       zodErrors: validatedField.error.flatten().fieldErrors,
       message: "Missing Fields failed to register",
+      success: false,
     };
   }
 
@@ -80,10 +82,12 @@ export async function registerUserAction(prevState, formData) {
 
     if (!signUp.ok) {
       const errorResponse = await signUp.json();
+
       return {
         ...prevState,
         zodErrors: null,
         message: errorResponse.msg || "Failed to sign up",
+        success: false,
       };
     }
 
@@ -91,11 +95,13 @@ export async function registerUserAction(prevState, formData) {
       const response = await signUp.json();
       console.log(response.msg);
 
+
       return {
         ...prevState,
         data: validatedField.data,
         zodErrors: null,
         message: response.msg || "Registration successful!",
+        success: true,
       };
     }
   } catch (error) {
@@ -104,6 +110,7 @@ export async function registerUserAction(prevState, formData) {
       ...prevState,
       zodErrors: null,
       message: "An unexpected error occurred. Please try again.",
+      success: false,
     };
   }
 
@@ -112,6 +119,7 @@ export async function registerUserAction(prevState, formData) {
     ...prevState,
     zodErrors: null,
     message: "Unknown error",
+    success: false,
   };
 }
 
@@ -128,6 +136,7 @@ export async function loginUserAction(prevState, formData) {
       ...prevState,
       zodErrors: validatedLoginField.error.flatten().fieldErrors,
       message: "Missing Fields failed to Login",
+      success: false,
     };
   }
 
@@ -149,13 +158,24 @@ export async function loginUserAction(prevState, formData) {
         ...prevState,
         zodErrors: null,
         message: errorResponse.msg || "Failed to sign in",
+        success: false,
       };
     }
 
     if (signIn.status === 200) {
       const response = await signIn.json();
-      // console.log(response.d);
-      // setAccessToken(response?.d?.token);
+      console.log(JSON.stringify(response.d, null, 2), "login response");
+      
+      cookies().set({
+        name: 'token',
+        value: response?.d?.token,
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 60 * 60 * 24 * 7 // 7 days
+      });
+
+
+
 
       return {
         ...prevState,
@@ -163,6 +183,8 @@ export async function loginUserAction(prevState, formData) {
         token: response?.d?.token,
         zodErrors: null,
         message: response.msg || "Login successful!",
+        success: true,
+        response: response?.d
       };
     }
   } catch (error) {
@@ -171,6 +193,7 @@ export async function loginUserAction(prevState, formData) {
       ...prevState,
       zodErrors: null,
       message: "An unexpected error occurred. Please try again.",
+      success: false,
     };
   }
 
@@ -180,4 +203,13 @@ export async function loginUserAction(prevState, formData) {
     zodErrors: null,
     message: "Correct inputs!",
   };
+}
+
+export async function loguOutuserAction() {
+    cookies().set({
+      name: 'token',
+      value: '', // empty value
+      expires: new Date(0), // immediately expires the cookie
+      maxAge: 0 // or set maxAge to 0
+    });
 }

@@ -2,29 +2,18 @@
 
 import Image from "next/image";
 import Button from "@/components/button/page";
+import { useRouter } from "next/navigation";
 import { reviewSection } from "@/app/utils/arrays";
 import Link from "next/link";
 import "./userProfile.css";
 import useUser from "@/hooks/use-auth";
-import { getUserProfile } from "@/libs/actions/profile.action";
-import { useCallback, useEffect } from "react";
 
 const UserProfile = () => {
-  const { accessToken, setUser, user } = useUser();
+  const { user } = useUser();
+  
+  const full_name = `${user?.first_name} ${user?.last_name}`
 
-  const loadProfile = useCallback(async () => {
-    if (!accessToken) return;
-    const profile = await getUserProfile(accessToken);
-    setUser(profile);
-  }, [accessToken, setUser]);
-
-  const name = user?.first_name + " " + user?.last_name; // Added space between names
-
-  useEffect(() => {
-    if (accessToken) {
-      loadProfile();
-    }
-  }, [accessToken, loadProfile]);
+  const route = useRouter()
 
   return (
     <div className="user_flex">
@@ -35,8 +24,10 @@ const UserProfile = () => {
           height="168"
           width="168"
         />
-        <p className="username">{name}</p>
-        <Button value={"Edit Profile"} className={"edit_btn"} />
+        <p className="username">{full_name}</p>
+        <Button value={"Edit Profile"} className={"edit_btn"} onClick={() => {
+          route.push("../accountSettings")
+        }} />
       </div>
       <div className="user_reviews">
         <p className="title">Reviews</p>

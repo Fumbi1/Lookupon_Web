@@ -243,6 +243,13 @@ const reviewSection = [
   },
 ];
 
+const catalogHome = [
+  "/stacked-card.svg",
+  "/stacked-card-1.svg",
+  "/stacked-card-2.svg",
+  "/stacked-card-3.svg",
+]
+
 const catalogueImages = [
   "/media-0.svg",
   "/media-1.svg",
@@ -279,4 +286,4 @@ const businessCategories = [
   "Mass Media",
 ]
 
-export { categories, cards, search_Results, openingHours, reviewSection, catalogueImages, businessCategories };
+export { categories, cards, search_Results, openingHours, reviewSection, catalogHome, catalogueImages, businessCategories };

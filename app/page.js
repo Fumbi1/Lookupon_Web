@@ -4,11 +4,11 @@ import Footer from "@/components/footer/page";
 
 const HomePage = () => {
   return (
-    <main>
+    <>
       <Nav />
       <Home />
       <Footer />
-    </main>
+    </>
   )
 }
 

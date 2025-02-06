@@ -44,7 +44,7 @@ export default function VerificationPage() {
         setShowResendButton(true);
       } else {
         setTimeout(() => {
-          route.replace("/signIn");
+          route.push("/signIn");
         }, 5000);
       }
     } catch (error) {

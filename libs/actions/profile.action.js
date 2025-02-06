@@ -1,8 +1,11 @@
 "use server";
 
+import useUser from "@/hooks/use-auth";
+
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export async function getUserProfile(token) {
+  
   const getUserUrl = `${BASE_URL}/user/profile/fetch`;
 
   if (!token) {
@@ -21,8 +24,8 @@ export async function getUserProfile(token) {
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }
-
     const result = await response.json();
+    console.log(result.d, "here is the user profile reponse")
     return result.d;
   } catch (error) {
     console.log(error);

@@ -6,6 +6,7 @@ import Button from "@/components/button/page";
 import Review from "@/components/reviewSection/page";
 import { openingHours } from "@/app/utils/arrays";
 import Catalogue from "@/components/catalogue/page";
+import { catalogHome } from "@/app/utils/arrays";
 import { catalogueImages } from "@/app/utils/arrays";
 import { useState } from "react";
 
@@ -27,7 +28,7 @@ function BusinessProfile() {
         <div className="catalogue-wrap">
           <div className='catalogue-modal'>
           </div>
-          <Catalogue images={catalogueImages} activeImage={imagee} onClick={focusedImage} closeIcon={() => setCatalog(false)}/>
+          <Catalogue images={catalogueImages} activeImage={imagee} onClick={focusedImage} closeIcon={() => setCatalog(false)} />
         </div>
       }
       <div className="header">
@@ -95,42 +96,29 @@ function BusinessProfile() {
             <div className="photos-wrap">
               <p>Catalogue</p>
 
-              <div>
-                <Image
-                  src="/stacked-card.svg"
-                  alt="food"
-                  height="178"
-                  width="178"
-                  onClick={() => setCatalog(true)}
-                />
-                <Image
-                  src="/stacked-card-1.svg"
-                  alt="food"
-                  height="178"
-                  width="178"
-                />
-                <Image
-                  src="/stacked-card-2.svg"
-                  alt="food"
-                  height="178"
-                  width="178"
-                />
-                <Image
-                  src="/stacked-card-3.svg"
-                  alt="food"
-                  height="178"
-                  width="178"
-                />
+              <div className="user-side-catalogue">
+                {catalogHome.map((image) => {
+                  return (<Image
+                    src={image}
+                    alt="food"
+                    height="178"
+                    width="178"
+                    onClick={() => setCatalog(true)}
+                  />)
+                })}
               </div>
+              <p className="blink">
+                You can click on each catalog image to view them in full
+              </p>
             </div>
           </div>
           <hr className="line" />
           <div className="comments-wrap">
-            <div className="review">
+            <div className="user-review">
               <p className="review-p">Reviews</p>
-              <div>
-                <label htmlFor="">Filter:</label>
-                <select name="" id="">
+              <div className="ratings-sort">
+                <label className="ratings-label" htmlFor="">Filter:</label>
+                <select name="" id="" className="ratings-select">
                   <option value="">All Ratings</option>
                   <option value=""> greater than 4.5</option>
                   <option value="">3.5 - 4.5</option>
@@ -193,15 +181,19 @@ function BusinessProfile() {
 
             <p className="hour">Hour</p>
 
-            {openingHours?.map((session, index) => {
-              return (
-                <div className="opening-time" key={index}>
-                  <div className="location">{session.day}</div>
-                  <div className="time-range">{session.time_range}</div>
-                  <div className="open">{session.open}</div>
-                </div>
-              );
-            })}
+            <table className="table">
+              <tbody>
+                {openingHours?.map((session, index) => {
+                  return (
+                    <tr className="opening-timee" key={index}>
+                      <td className="locationn">{session.day}</td>
+                      <td className="time-rangee">{session.time_range}</td>
+                      <td className="openn">{session.open}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

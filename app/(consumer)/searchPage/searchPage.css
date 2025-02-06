@@ -34,12 +34,12 @@ main{
     font-style: normal;
 }
 
-.button2{
+.searchpage-button{
     background-color: #5F61A8;
     color: #FFFFFF;
     width: fit-content;
     height: fit-content;
-    padding: 1.25rem 1.5rem;
+    padding: 1.12rem 1.5rem;
     border-radius: 0.25rem;
     border: none;
     font-weight: 600;
@@ -54,6 +54,7 @@ main{
 
 .sort{
     position: relative;
+    z-index: 0;
 }
 
 .sort::before,

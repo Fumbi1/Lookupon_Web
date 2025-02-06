@@ -86,23 +86,29 @@ form{
    width: fit-content;
 }
 
-input{
+.login-input{
     padding: 0.75rem;
+    border: 1px solid #000;
     border-radius: 0.25rem;
     width: 100%;
     margin-block: 0.5rem;
     font-family: Outfit;
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 500;
 }
 
-input::placeholder{
-    color: #5F61A8;
+.login-input::placeholder{
+    color: #595959;
     font-family: Outfit;
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.5rem;
     letter-spacing: 0.005em;
+}
+
+.login-input:focus {
+    outline-color: #5F61A8;
+    outline-width: 1px;
 }
 
 .sign-up-btn{
@@ -121,7 +127,7 @@ input::placeholder{
     border-radius: 0.25rem;
 }
 
-.last-part{
+.login-last-part{
     margin-top: 0.75rem;
     display: flex;
     flex-direction: row;
@@ -136,6 +142,7 @@ input::placeholder{
     letter-spacing: 0.005em;
 }
 
-.last-part > a{
+.login-last-part > a{
     text-decoration: none;
+    color: #5F61A8;
 }

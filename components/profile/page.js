@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   updateUserProfile,
   updateUserProfileImage,
@@ -21,6 +21,17 @@ const Profile = () => {
     alias: user?.alias || "",
     gender: user?.gender || "",
   });
+
+  useEffect(() => {
+    setFormData(
+      {
+        first_name: user?.first_name || "",
+        last_name: user?.last_name || "",
+        alias: user?.alias || "",
+        gender: user?.gender || "",
+      }
+    )
+  }, [accessToken])
 
   const handleChange = (e) => {
     setFormData({
@@ -68,7 +79,7 @@ const Profile = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="profile-settings" onSubmit={handleSubmit}>
         {/* Image section same as before */}
 
         <div className="user_photo_section">
@@ -93,6 +104,7 @@ const Profile = () => {
 
         <div>
           <input
+            className="settings-name"
             type="text"
             name="first_name"
             value={formData.first_name}
@@ -101,6 +113,7 @@ const Profile = () => {
           />
           <br />
           <input
+            className="settings-name"
             type="text"
             name="last_name"
             value={formData.last_name}
@@ -109,6 +122,7 @@ const Profile = () => {
           />
           <br />
           <input
+            className="settings-name"
             type="text"
             name="alias"
             value={formData.alias}

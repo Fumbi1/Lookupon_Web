@@ -2,10 +2,13 @@
 import Image from "next/image";
 import "./nav.css";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import useToggle from "/app/hooks/useToggle";
 
 const SignInNav = () => {
   const { switch1, switch2, toggle, toggle2 } = useToggle();
+
+  const route = useRouter()
 
   return (
     <div className="nav-wrap">
@@ -31,8 +34,8 @@ const SignInNav = () => {
                   />
                 </div>
                 <div className={toggle ? "dropdown" : "dropdown-off"}>
-                  <p className="dropdown-list">Add a business</p>
-                  <p className="dropdown-list">Sign in to business account</p>
+                  <p className="dropdown-list" onClick={() => route.push("/businessHome")}>Add a business</p>
+                  <p className="dropdown-list" onClick={() => route.push("/business/signIn")}>Sign in to business account</p>
                 </div>
               </div>
             </div>

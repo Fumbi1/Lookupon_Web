@@ -1,30 +1,34 @@
 "use client";
 import Image from "next/image";
+import { toast } from "react-hot-toast";
 import SignInNav from "./SignInNav";
-import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import "./nav.css";
 import Link from "next/link";
 import useToggle from "/app/hooks/useToggle";
 import useUser from "@/hooks/use-auth";
+import { loguOutuserAction } from "../actions/auth-actions";
 
 const Nav = () => {
-  const { accessToken } = useUser();
-
+  const { accessToken, clearUser } = useUser();
   const isSignedIn = Boolean(accessToken);
-  const [state, setState] = useState(false);
+  const route = useRouter();
+
+  const handleSignOut = async () => {
+    try {
+      await loguOutuserAction();
+      clearUser();
+      toast.success("Logout Successful");
+      route.replace("/signIn");
+    } catch (error) {
+      toast.error("Error signing out");
+    }
+  };
+  
 
   const { switch1, switch2, toggle, toggle2 } = useToggle();
 
-  const route = useRouter();
-
-  // Access current path
-  let currentPath = usePathname();
-
-  // Check if it's a specific route
-  const isSignUpPage = currentPath === "/signUp";
-  const isSignInPage = currentPath === "/signIn";
+ 
 
   return (
     <div>
@@ -59,10 +63,10 @@ const Nav = () => {
                       />
                     </div>
                     <div className={toggle ? "dropdown" : "dropdown-off"}>
-                      <p className="dropdown-list">Add a business</p>
+                      <p className="dropdown-list"  onClick={() => route.push("/businessHome")}>Add a business</p>
                       <p
                         className="dropdown-list"
-                        onClick={() => route.push("/businessHome")}
+                        onClick={() => route.push("/business/signIn")}
                       >
                         Sign in to business account
                       </p>
@@ -96,7 +100,10 @@ const Nav = () => {
                     >
                       Account settings
                     </p>
-                    <p className="dropdown-list">Sign Out</p>
+                    <p
+                    className="dropdown-list"
+                    onClick={handleSignOut}
+                    >Sign Out</p>
                   </div>
                 </div>
               </div>

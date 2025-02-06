@@ -1,9 +1,11 @@
 "use client";
 
+import { toast } from 'react-hot-toast';
 import Button from "@/components/button/page";
 import Link from "next/link";
 import Image from "next/image";
 import { ZodErrors } from "@/components/custom/zodErrors/zodErrors";
+import { useEffect } from "react";
 import { useFormState } from "react-dom";
 import { registerUserAction } from "@/components/actions/auth-actions";
 import "./signUp.css";
@@ -12,64 +14,87 @@ const INITIAL_STATE = {
   data: null,
   zodErrors: null,
   message: null,
+  success: false,
 };
 
 const SignUpRoute = () => {
+
   const [formState, formAction] = useFormState(
     registerUserAction,
     INITIAL_STATE
   );
 
+  useEffect(() => {
+    (formState.success === false && formState.message !== null) && toast.error(`${formState.message}`)
+  }, [formState])
+
+
   console.log(formState, "client");
 
   return (
-    <form action={formAction}>
-      <p className="form-header">Join Lookupon</p>
-      <p className="form-desc">Connect with local businesses around you.</p>
-      <div className="button-wrap">
-        <Image
-          src="/googleIcon.svg"
-          width="18"
-          height="18"
-          className="google-icon"
-          alt="google"
-        />
-        <Button
-          value="Continue with Google"
-          className="alt-signIn"
-          onClick={null}
-        />
-      </div>
-
-      <div className="line-wrap">
-        <hr className="hr" />
-        <p>or</p>
-        <hr className="hr" />
-      </div>
-      <div className="row-input">
-        <div className="name-wrap">
-          <input type="text" name="firstname" placeholder="First Name" id="a" />
-          <ZodErrors error={formState?.zodErrors?.first_name} />
+    <>
+      {formState.success !== false && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2 className="modal-title">Check Your Email</h2>
+            <p className="modal-message">
+              We've sent you an email with a verification link.
+              Please check your inbox and click the link to verify your account.
+            </p>
+            <p className="modal-spam-note">
+              If you don't see the email, please check your spam folder.
+            </p>
+          </div>
+        </div>
+      )}
+      <form action={formAction}>
+        <p className="form-header">Join Lookupon</p>
+        <p className="form-desc">Connect with local businesses around you.</p>
+        <div className="button-wrap">
+          <Image
+            src="/googleIcon.svg"
+            width="18"
+            height="18"
+            className="google-icon"
+            alt="google"
+          />
+          <Button
+            value="Continue with Google"
+            className="alt-signIn"
+            onClick={null}
+          />
         </div>
 
-        <div className="name-wrap">
-          <input type="text" name="lastname" placeholder="Last Name" id="b" />
-          <ZodErrors error={formState?.zodErrors?.last_name} />
+        <div className="line-wrap">
+          <hr className="hr" />
+          <p>or</p>
+          <hr className="hr" />
         </div>
-      </div>
-      <input type="email" name="email" placeholder="Email" id="c" />
-      <ZodErrors error={formState?.zodErrors?.email} />
-      <br />
-      <input type="password" name="password" placeholder="Password" id="d" />
-      <ZodErrors error={formState?.zodErrors?.password} />
-      <br />
+        <div className="sign-in-row-input">
+          <div className="sign-up-name-wrap">
+            <input type="text" name="firstname" placeholder="First Name" id="a" className="sign-up-input-field"/>
+            <ZodErrors error={formState?.zodErrors?.first_name} />
+          </div>
 
-      <Button type="submit" value="Sign up" className="sign-up-btn" />
-      <div className="last-part">
-        <p>Already on Lookupon?</p>
-        <Link href="/signIn">Sign in</Link>
-      </div>
-    </form>
+          <div className="name-wrap">
+            <input className="sign-up-input-field" type="text" name="lastname" placeholder="Last Name" id="b" />
+            <ZodErrors error={formState?.zodErrors?.last_name} />
+          </div>
+        </div>
+        <input className="sign-up-input-field" type="email" name="email" placeholder="Email" id="c" />
+        <ZodErrors error={formState?.zodErrors?.email} />
+        <br />
+        <input className="sign-up-input-field" type="password" name="password" placeholder="Password" id="d" />
+        <ZodErrors error={formState?.zodErrors?.password} />
+        <br />
+
+        <Button type="submit" value="Sign up" className="sign-up-btn" />
+        <div className="last-part">
+          <p>Already on Lookupon?</p>
+          <Link href="/signIn">Sign in</Link>
+        </div>
+      </form>
+    </>
   );
 };
 
