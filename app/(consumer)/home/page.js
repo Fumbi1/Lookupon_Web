@@ -52,16 +52,33 @@ export default function Home() {
               Most Reviewed Businesses
             </p>
 
-            <div className="business-grid">
-              {
-                cards.map((card, index) => {
-                  return (
+            {/* New container with inline styles to force scrolling behavior */}
+            <div style={{
+              width: '100%',
+              overflowX: 'auto',
+              whiteSpace: 'nowrap',
+              paddingBottom: '12px'
+            }}>
+              {/* Force cards to display inline */}
+              <div style={{
+                display: 'inline-flex',
+                gap: '1rem',
+                padding: '0.5rem'
+              }}>
+                {cards.map((card, index) => (
+                  <div key={index} style={{
+                    display: 'inline-block',
+                    whiteSpace: 'normal',
+                    verticalAlign: 'top'
+                  }}>
                     <BusinessCard
-                      key={index} img={card.img} namee={card.name} comment={card.comment}
+                      img={card.img}
+                      namee={card.name}
+                      comment={card.comment}
                     />
-                  )
-                })
-              }
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 

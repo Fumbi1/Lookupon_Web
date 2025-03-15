@@ -3,18 +3,29 @@ import Image from "next/image";
 import "./nav.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import useToggle from "/app/hooks/useToggle";
+import NavModal from "./navModal";
 
 const SignInNav = () => {
   const { switch1, switch2, toggle, toggle2 } = useToggle();
+  const [ navState, setNavState ] = useState(false);
+  const route = useRouter();
 
-  const route = useRouter()
+  const DropDown = () => {
+    setNavState(!navState)
+  }
 
   return (
     <div className="nav-wrap">
+
+      <div className={navState? "nav-drop-wrap": "nav-drop-inactive"}>
+        <NavModal img={"/close.svg"} close={DropDown} switch1={switch1} toggle={toggle}/>
+      </div>
+
       <div className="nav-flex">
         <Link href="/" className="logo">
-          <Image src="/logo.svg" width="172" height="32" alt="omooo" layout="responsive"/>
+          <Image src="/logo.svg" width="172" height="32" alt="omooo" layout="responsive" />
         </Link>
         <div className="userFn">
           <div className="user-wrap">
@@ -41,22 +52,12 @@ const SignInNav = () => {
             </div>
 
             <div className="sign-wrap">
-              {/* <Image
-                src="/profileImage.svg"
-                alt="User Image"
-                height="40"
-                width="40"
-                onClick={switch2}
-                className={toggle2 ? "rotate2" : "rotate0"}
-              />
-              <div className={toggle2 ? "dropdown2" : "dropdown-off2"}>
-                <p className="dropdown-list">Profile</p>
-                <p className="dropdown-list">Account settings</p>
-                <p className="dropdown-list">Sign Out</p>
-              </div> */}
-
               <Link className="sign_in" href="/signIn">Sign In</Link>
               <Link className="sign_up" href="/signUp">Sign Up</Link>
+            </div>
+
+            <div className="burger-div">
+              <Image src={'/menu-line-horizontal.svg'} width={24} height={24} alt="nav" onClick={DropDown} />
             </div>
           </div>
         </div>

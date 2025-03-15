@@ -1,23 +1,23 @@
-.business-card{
-    width: fit-content;
-    min-width: 17.5rem;
-    max-width: 22.5rem;
+.business-card {
+    width: 17.5rem;
+    flex: 0 0 auto;
+    display: inline-block;
     border-radius: 0.75rem;
     background-color: #FFF;
     box-shadow: 1px 1px 1px 2px #F2F2F2;
 }
 
-.business-pic{
+.business-pic {
     border-top-left-radius: 0.75rem;
     border-top-right-radius: 0.75rem;
 }
 
-.card-details{
+.card-details {
     margin-inline: 1rem;
     margin-bottom: 1.75rem;
 }
 
-.card-name{
+.card-name {
     font-size: 1rem;
     color: #060132;
     font-family: "Outfit", sans-serif;
@@ -27,7 +27,7 @@
     line-height: 1.5rem;
 }
 
-.card-time{
+.card-time {
     font-size: 1rem;
     color: #72707D;
     font-family: "Outfit", sans-serif;
@@ -37,7 +37,7 @@
     line-height: 1.5rem;
 }
 
-.card-menu{
+.card-menu {
     font-size: 0.875rem;
     color: #72707D;
     font-family: "Outfit", sans-serif;
@@ -47,7 +47,7 @@
     line-height: 1.25rem;
 }
 
-.business-comment{
+.business-comment {
     margin-top: 0.875rem;
     display: flex;
     flex-direction: row;
@@ -56,7 +56,7 @@
     gap: 0.25rem;
 }
 
-.card-comment{
+.card-comment {
     font-size: 0.875rem;
     color: #17171A;
     font-family: "Outfit", sans-serif;
@@ -68,6 +68,4 @@
 
 
 
-@media(max-width: 724px) {
-    
-}
+@media(max-width: 724px) {}

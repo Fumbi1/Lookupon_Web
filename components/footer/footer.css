@@ -47,6 +47,7 @@
 @media(max-width: 724px) {
     
     .footer-content{
+        margin-inline: 1.5rem;
         margin-bottom: 1.5rem;
         width: 95%;
         margin-inline: auto;
@@ -55,5 +56,10 @@
         justify-content: center;
         align-items: flex-start;
         gap: 1.5rem;
+    }
+
+    .copyright {
+        text-align: left;
+        margin-inline: 1.5rem;
     }
 }
